@@ -13,9 +13,9 @@ function formHandler(event) {
     const USER_NAME = document.querySelector("#username")
     const SCORE = document.querySelector("#score")
     let text = ""
-    if(SCORE.value >=0 && SCORE.value <=100) 
+    if(USER_NAME.value && SCORE.value)
     {
-        if(USER_NAME.value && SCORE.value) 
+        if(SCORE.value >=0 && SCORE.value <=100)
         {
             if(SCORE.value >= 90) {
                 text = "AA"
@@ -52,18 +52,19 @@ function formHandler(event) {
         {
             alertDOM.innerHTML = alertFunction(
                 "Error!",
-                "Missing İnformation",
-                "danger"
+                "İncorrect İnformation",
+                "secondary"
             )
         }
     } 
-    else {
-            alertDOM.innerHTML = alertFunction(
-                "Error!", 
-                "İncorret İnformation",
-                "danger"
-            )
-        }
+    else 
+    {
+        alertDOM.innerHTML = alertFunction(
+            "Error!", 
+            "Missing İnformation",
+            "danger"
+        )
+    }
 }
 
 let userListDOM = document.querySelector('#userList')
