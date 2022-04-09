@@ -12,18 +12,58 @@ function formHandler(event) {
     event.preventDefault()
     const USER_NAME = document.querySelector("#username")
     const SCORE = document.querySelector("#score")
-
-    if (USER_NAME.value && SCORE.value) {
-        addItem(USER_NAME.value, SCORE.value)
-        USER_NAME.value = ""
-        SCORE.value = ""
-    } else {
-        alertDOM.innerHTML = alertFunction(
-            "Error!",
-            "Missing İnformation",
-            "danger"
-        )
-    }
+    let text = ""
+    if(SCORE.value >=0 && SCORE.value <=100) 
+    {
+        if(USER_NAME.value && SCORE.value) 
+        {
+            if(SCORE.value >= 90) {
+                text = "AA"
+            }
+            else if(SCORE.value >= 80) {
+                text = "BA"
+            }
+            else if(SCORE.value >= 75) {
+                text = "BB"
+            }
+            else if(SCORE.value >= 70) {
+                text = "CB"
+            }
+            else if(SCORE.value >= 60) {
+                text = "CC"
+            }
+            else if(SCORE.value >= 55) {
+                text = "DC"
+            }
+            else if(SCORE.value >= 50) {
+                text = "DD"
+            }
+            else if(SCORE.value >= 45) {
+                text = "FD"
+            }
+            else if(SCORE.value < 45) {
+                text = "FF"
+            }
+            addItem(USER_NAME.value, text)
+            USER_NAME.value = ""
+            SCORE.value = ""
+        } 
+        else
+        {
+            alertDOM.innerHTML = alertFunction(
+                "Error!",
+                "Missing İnformation",
+                "danger"
+            )
+        }
+    } 
+    else {
+            alertDOM.innerHTML = alertFunction(
+                "Error!", 
+                "İncorret İnformation",
+                "danger"
+            )
+        }
 }
 
 let userListDOM = document.querySelector('#userList')
